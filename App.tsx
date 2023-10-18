@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import Login from './src/screens/Login'
 
 export default function App() {
   return (
-    <View testID="App" className="flex-1 items-center justify-center bg-white">
-      <Text className="text-black">Tem Vaga Mestre?</Text>
+    <View testID="App">
+      <Login />
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
