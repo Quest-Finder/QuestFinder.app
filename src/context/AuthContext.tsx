@@ -15,7 +15,7 @@ type AuthContextDataProps = {
   isLoaded: boolean;
 };
 
-type AuthCOntextProviderProps = {
+type AuthContextProviderProps = {
   children: ReactNode;
 };
 
@@ -23,7 +23,7 @@ export const AuthContext = createContext<AuthContextDataProps>(
   {} as AuthContextDataProps,
 );
 
-export function AuthProvider({ children }: AuthCOntextProviderProps) {
+export function AuthProvider({ children }: AuthContextProviderProps) {
   const [user, setUser] = useState<UserDTO | null>(null);
   const { signOut: clerkSignOut } = useAuth();
   const { user: clerkUser, isLoaded } = useUser();
