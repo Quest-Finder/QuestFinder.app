@@ -1,13 +1,13 @@
-import { StatusBar } from 'expo-status-bar'
-import { View } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import { Routes } from './src/routes'
+import { StatusBar } from 'expo-status-bar';
+
+import { AppProvider } from './src/context/AppProvider';
+import { Routes } from './src/routes';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Routes />
+    <AppProvider>
       <StatusBar style="auto" />
-    </NavigationContainer>
-  )
+      <Routes />
+    </AppProvider>
+  );
 }

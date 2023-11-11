@@ -3,6 +3,7 @@
     "name": "TemVagaMestre",
     "slug": "TemVagaMestre",
     "version": "1.0.0",
+    "scheme": "temvagamestre",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
