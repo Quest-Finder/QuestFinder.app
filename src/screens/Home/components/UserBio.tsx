@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
+import Btn from './Button'
 
 const UserBio = () => {
   const initialMaxChars = 206
@@ -36,6 +37,8 @@ const UserBio = () => {
           </TouchableOpacity>
         )}
       </View>
+
+      <Btn title="Enviar Mensagem" />
     </View>
   )
 }
