@@ -1,18 +1,37 @@
-import { useState } from 'react';
-import { Button, FlatList, Pressable, Text, View } from 'react-native';
+import { useCallback, useState } from 'react';
+import { Button, FlatList, Text, View } from 'react-native';
 
 import { getFormattedDateDetails } from '../../utils/Calendar/dateFormatter';
 
-interface HoursAvailableProps {
+import { HourCard } from './HourCard';
+
+interface DayScheduleProps {
   date: string;
 }
 
-/* TODO: FIX COMPONENTE DE HORAS DISPONIVEIS */
-
-export function AvailableTimes({ date }: HoursAvailableProps) {
+export function ScheduleDateTime({ date }: DayScheduleProps) {
   const [hourSelected, setHourSelected] = useState('');
-
   const { formattedDateInfo } = getFormattedDateDetails(date);
+
+  // FIXME: Buscar as horas disponíveis de acordo com o dia que foi selecionado
+  const handleSelectedHour = useCallback(
+    (hour: string) => {
+      if (hour === hourSelected) {
+        setHourSelected('');
+      } else {
+        setHourSelected(hour);
+      }
+    },
+    [hourSelected],
+  );
+
+  const availableHours = [
+    '09:00am',
+    '10:00am',
+    '11:00am',
+    '13:00pm',
+    '17:00pm',
+  ];
 
   return (
     <View className="justify-between my-8 pl-6 ">
@@ -33,24 +52,16 @@ export function AvailableTimes({ date }: HoursAvailableProps) {
             paddingRight: 40,
           }}
           horizontal
-          data={['09:00am', '10:00am', '11:00am']}
+          data={availableHours}
           renderItem={({ item }) => (
-            <Pressable
+            <HourCard
               key={item}
-              className={`w-20 h-14 ${
-                hourSelected === item ? 'bg-[#095658]' : 'bg-[#EEFFFD]'
-              } rounded-md items-center justify-center transition-colors`}
-              onPress={() => setHourSelected(item)}
-            >
-              <Text
-                className={`font-medium text-sm leading-6 ${
-                  hourSelected === item ? 'text-white' : 'text-[#003236]'
-                } transition-colors`}
-              >
-                {item}
-              </Text>
-            </Pressable>
+              text={item}
+              onPress={() => handleSelectedHour(item)}
+              isSelected={hourSelected === item}
+            />
           )}
+          keyExtractor={(item) => item}
         />
       </View>
 
