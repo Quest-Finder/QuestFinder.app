@@ -1,20 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { AppProvider } from './src/context/AppProvider';
+import { Routes } from './src/routes';
 
 export default function App() {
   return (
-    <View testID="App" style={styles.container}>
-      <Text>Tem Vaga Mestre?</Text>
+    <AppProvider>
       <StatusBar style="auto" />
-    </View>
+      <Routes />
+    </AppProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
