@@ -5,10 +5,9 @@ import Image2 from './exampleImages/example2.png';
 import Image3 from './exampleImages/example3.png';
 import { ImageCard } from './ImageCard';
 
-/* FIXME: prop image: bem provável que seja uma string, representando o nome da imagem salva no bd. 
- Para acessar a imagem será em uma rota {{uri: `https:www.../images/${imageName}`}}
+/**
+ * FIXME: No momento deixei um objeto de exemplo da seção de imagens
  */
-
 interface ImagesProps {
   id: string;
   image: ImageSourcePropType;
